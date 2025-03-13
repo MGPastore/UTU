@@ -88,6 +88,16 @@ public:
     void getJsonSize() {
         cout << "El JSON tiene " << datos.size() << " valores." << endl;
     }
+
+    // Función para obtener el valor de una clave
+    string getValueByKey(const string& clave) {
+        auto it = datos.find(clave);
+        if (it != datos.end()) {
+            return it->second;  // Retorna el valor correspondiente a la clave
+        } else {
+            return "Clave no encontrada";  // Si no se encuentra la clave
+        }
+    }
 };
 
 int main() {
@@ -115,6 +125,14 @@ int main() {
 
     // Mostrar el tamaño del JSON
     json.getJsonSize();
+
+    // Obtener un valor por su clave
+    string clave = "edad";
+    cout << "El valor de la clave \"" << clave << "\" es: " << json.getValueByKey(clave) << endl;
+
+    // Intentar obtener un valor con una clave que no existe
+    clave = "pais";
+    cout << "El valor de la clave \"" << clave << "\" es: " << json.getValueByKey(clave) << endl;
 
     return 0;
 }
