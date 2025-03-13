@@ -53,7 +53,7 @@ public:
         }
 
         // Imprimir el array de valores
-        cout << " [ ";
+        cout << "Array de valores resultante: [ ";
         for (auto& valor : array) {
             cout << "\"" << valor << "\"";
             if (&valor != &array.back()) {
